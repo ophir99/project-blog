@@ -1,0 +1,10 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      {{heading}}
+    </mat-card-title>
+    <mat-card-content>
+      <app-form (changeHeading)="getHeading($event)"></app-form>
+    </mat-card-content>
+  </mat-card>
+</div>
