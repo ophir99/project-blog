@@ -3,6 +3,9 @@
     <td>
       <mat-form-field>
         <input type="text" matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="signUpForm.get('email').errors?.email">
+          Provide correct email..
+        </mat-error>
       </mat-form-field>
     </td>
   </tr>
@@ -10,6 +13,9 @@
     <td>
       <mat-form-field>
         <input type="password" matInput placeholder="Choose password" formControlName="password">
+        <mat-error *ngIf="signUpForm.get('password').errors?.passwordError">
+          password is incorrect
+        </mat-error>
       </mat-form-field>
     </td>
 
@@ -19,6 +25,10 @@
       <mat-form-field>
         <input type="password" matInput placeholder="Confirm password" formControlName="confirmP">
       </mat-form-field>
+      <mat-error *ngIf="signUpForm.get('confirmP').errors?.cPasswordError">
+        confirm password is incorrect
+      </mat-error>
+
     </td>
   </tr>
   <tr>
@@ -59,3 +69,11 @@
     </td>
   </tr>
 </table>
+
+
+{{
+  signUpForm.get('password').errors | json
+}}
+{{
+  signUpForm.get('confirmP').errors | json
+}}

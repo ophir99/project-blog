@@ -8,10 +8,10 @@ interface User{
   providedIn: 'root'
 })
 export class UserService {
-  BASE_URL = "http://localhost:9090/user"
+  BASE_URL = "http://localhost:9800/user"
   constructor(
     private http: HttpClient
   ) { }
 
-  createUser = (data:User)=> this.http.post(`${this.BASE_URL}/new`, data)
+  createUser = (data:User)=> this.http.post(`${this.BASE_URL}/create`, data)
 }
