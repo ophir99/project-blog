@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-interface User{
+export interface User{
   email: string;
   password: string
 }
@@ -14,4 +14,5 @@ export class UserService {
   ) { }
 
   createUser = (data:User)=> this.http.post(`${this.BASE_URL}/create`, data)
+  logUser = (data:User)=> this.http.post(`${this.BASE_URL}/login`, data)
 }

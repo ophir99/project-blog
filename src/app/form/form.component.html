@@ -42,25 +42,25 @@
     </td>
   </tr>
 </table>
-<table *ngIf="displaySigninForm">
+<table [formGroup]="signInForm" *ngIf="displaySigninForm">
   <tr>
     <td>
       <mat-form-field>
-        <input type="text" matInput placeholder="Email">
+        <input type="text" formControlName="email" matInput placeholder="Email">
       </mat-form-field>
     </td>
   </tr>
   <tr>
     <td>
       <mat-form-field>
-        <input type="password" matInput placeholder="Enter password">
+        <input type="password" formControlName="password" matInput placeholder="Enter password">
       </mat-form-field>
     </td>
 
   </tr>
   <tr>
     <td>
-      <button mat-raised-button color="accent">Signin</button>
+      <button mat-raised-button color="accent" (click)="loguser()">Signin</button>
     </td>
   </tr>
   <tr>
