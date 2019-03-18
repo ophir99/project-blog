@@ -19,9 +19,16 @@
 
   <div class="flx fdc">
     <mat-card *ngFor="let tweet of tweets">
+      <mat-card-title>
+        Title
+      </mat-card-title>
       <mat-card-content>
         {{tweet.text}}
       </mat-card-content>
+      <mat-card-actions>
+        <button (click)="openEditDialog(tweet)" mat-raised-button color="accent">Edit</button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </div>
+

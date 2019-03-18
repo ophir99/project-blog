@@ -15,6 +15,9 @@ export class TweetService {
 
 
   createTweet = (data:Tweet) => this.http.post(`${this.BASE_URL}/create`, data);
-  
+
   getAllTweets = () => this.http.get(`${this.BASE_URL}/all`);
+
+  updateTweet = (data:any) => this.http.put(`${this.BASE_URL}/${data.id}`, {tweet: data.tweet});
 }
+// localhost:9800/post/dhsjdhjs5656565
