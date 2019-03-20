@@ -12,13 +12,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { TweeteditComponent } from './tweetedit/tweetedit.component';
+import { SettingsComponent } from './settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     FormComponent,
     DashboardComponent,
-    TweeteditComponent
+    TweeteditComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

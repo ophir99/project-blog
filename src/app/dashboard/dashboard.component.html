@@ -5,7 +5,7 @@
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>Settings</button>
+  <button mat-menu-item >Settings</button>
   <button (click)="logout()" mat-menu-item>Logout</button>
 </mat-menu>
 
@@ -18,7 +18,7 @@
   </div>
 
   <div class="flx fdc">
-    <mat-card *ngFor="let tweet of tweets">
+    <mat-card *ngFor="let tweet of tweets; let i = index;">
       <mat-card-title>
         Title
       </mat-card-title>
@@ -27,6 +27,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button (click)="openEditDialog(tweet)" mat-raised-button color="accent">Edit</button>
+        <button (click)="deleteTweet(tweet._id, i)" mat-raised-button color="warn">Delete</button>
       </mat-card-actions>
     </mat-card>
   </div>
