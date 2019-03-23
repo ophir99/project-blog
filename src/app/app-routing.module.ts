@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LandingpageguardService } from './landingpageguard.service';
 import { DashboardactivateguardService } from './dashboardactivateguard.service';
 import { SettingsComponent } from './settings/settings.component';
+import { UserConComponent } from './user-con/user-con.component';
 
 const routes: Routes = [
   {
@@ -14,12 +15,7 @@ const routes: Routes = [
   },
   {
     path: "dashboard",
-    canActivate: [DashboardactivateguardService],
-    component: DashboardComponent
-  },
-  {
-    path: "settings",
-    component: SettingsComponent
+    loadChildren: "./dashboard/user.module#UserModule"
   }
 ];
 

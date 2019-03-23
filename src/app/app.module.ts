@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatTableModule, MatPaginator, MatPaginatorModule, MatSortModule, MatCardModule, MatSnackBar, MatSnackBarModule, MatToolbarModule, MatMenuModule, MatDialogModule } from "@angular/material";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LandingComponent } from './landing/landing.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -13,35 +12,35 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { TweeteditComponent } from './tweetedit/tweetedit.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AppInterceptor } from './app.interceptor';
+import { UserConComponent } from './user-con/user-con.component';
+import { MatModule } from './mat.module';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     FormComponent,
-    DashboardComponent,
-    TweeteditComponent,
-    SettingsComponent
+    // DashboardComponent,
+    // TweeteditComponent,
+    // SettingsComponent,
+    // UserConComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatTableModule,
-    MatCardModule,
-    MatSnackBarModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatDialogModule,
+    MatModule,
   HttpClientModule,
-  MatPaginatorModule,
-  MatSortModule,
+  FormsModule,
+  ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [TweeteditComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

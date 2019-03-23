@@ -40,11 +40,7 @@ export class DashboardComponent implements OnInit {
       )
   }
 
-  logout() {
-    sessionStorage.removeItem("appToken");
-    this.router.navigateByUrl("/");
-
-  }
+  
 
   setPlaceholder(post) {
     if (!post.value) {

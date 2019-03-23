@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 export interface Tweet{
+  _id?: string,
   text: string,
   date: string
 }
@@ -15,15 +16,10 @@ export class TweetService {
 
 
   createTweet = (data:Tweet) => 
-  this.http.post(`${this.BASE_URL}/create`, data, {
-    headers: new HttpHeaders().append("auth", sessionStorage.getItem("appToken"))
-                              .append("simple", "dsjkdjskj10")
-  });
+  this.http.post(`${this.BASE_URL}/create`, data);
 
   getAllTweets = () => 
-  this.http.get(`${this.BASE_URL}/all`, {
-    
-  });
+  this.http.get(`${this.BASE_URL}/all`);
 
   updateTweet = (data:any) => this.http.put(`${this.BASE_URL}/${data.id}`, {tweet: data.tweet});
 

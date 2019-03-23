@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { of } from 'rxjs';
+import { UserModule } from './dashboard/user.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DashboardactivateguardService implements CanActivate {
 
